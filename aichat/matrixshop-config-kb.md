@@ -24,6 +24,9 @@ plugins/MatrixShop/
 ├─ Economy/
 ├─ Menu/
 ├─ SystemShop/
+│  ├─ goods/
+│  ├─ shops/
+│  └─ ui/
 ├─ PlayerShop/
 ├─ GlobalMarket/
 ├─ Auction/
@@ -138,11 +141,19 @@ plugins/MatrixShop/
 
 如果生成的是高保真商品定义，优先输出 `item` 语义对应的结构说明，并同时保留当前 MatrixShop 支持的字段。
 
+当前推荐结构：
+
+- 商品本体放在 `SystemShop/goods/<product-id>.yml`
+- 分类文件 `SystemShop/shops/<shop-id>.yml` 里的 `goods:` 只写商品 id 列表
+- `shops/*.yml` 里直接内联 `goods.<id>` 仍兼容，但不应作为新配置默认写法
+
 ## 管理员商品维护
 
 SystemShop 当前支持管理员快速维护商品：
 
-- `/matrixshopadmin goods add <category> <price> [buy-max] [product-id]`
+- `/matrixshopadmin goods ui [page]`
+- `/matrixshopadmin goods save <price> [buy-max] [product-id]`
+- `/matrixshopadmin goods add <category> <product-id>`
 - `/matrixshopadmin goods select <category> <product-id>`
 - `/matrixshopadmin goods edit <price|buy-max|currency|name|item|remove> ...`
 

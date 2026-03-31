@@ -10,6 +10,9 @@ plugins/MatrixShop/
 ├─ Economy/
 ├─ Menu/
 ├─ SystemShop/
+│  ├─ goods/
+│  ├─ shops/
+│  └─ ui/
 ├─ PlayerShop/
 ├─ GlobalMarket/
 ├─ Auction/
@@ -149,3 +152,23 @@ The current help and hint chain supports:
 - `currency`
 
 If `item` is present, it should be treated as the higher-fidelity product source for item metadata.
+
+Preferred storage model:
+
+- `SystemShop/goods/<product-id>.yml`
+  - stores one reusable product definition
+- `SystemShop/shops/<shop-id>.yml`
+  - uses `goods:` as a list of product ids, for example:
+
+```yaml
+goods:
+  - diamond_sword
+  - bow
+```
+
+Legacy-compatible model:
+
+- `SystemShop/shops/<shop-id>.yml`
+  - may still embed `goods.<id>` sections directly
+
+When generating fresh configs, prefer the separate `goods/` directory plus shop references.

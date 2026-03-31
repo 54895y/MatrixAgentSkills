@@ -62,17 +62,23 @@ Currency:
   Key: vault
 
 goods:
-  diamond_sword:
-    material: 'DIAMOND_SWORD'
-    amount: 1
-    price: 420
-    buy-max: 8
-    name: '&b钻石剑'
-    lore:
-      - '&7高品质近战武器'
+  - diamond_sword
 ```
 
-## 4. PlayerShop settings
+## 4. SystemShop goods file
+
+```yaml
+id: diamond_sword
+material: 'DIAMOND_SWORD'
+amount: 1
+price: 420
+buy-max: 8
+name: '&b钻石剑'
+lore:
+  - '&7高品质近战武器'
+```
+
+## 5. PlayerShop settings
 
 ```yaml
 Enabled: true
@@ -100,7 +106,7 @@ Currency:
   Key: vault
 ```
 
-## 5. Non-shop module bindings
+## 6. Non-shop module bindings
 
 For modules such as `ChestShop`, `Cart`, and `Record`, put bindings in `settings.yml`:
 
@@ -116,7 +122,7 @@ Bindings:
       - '&7常用入口: &f{command} open'
 ```
 
-## 6. Help and hint keys
+## 7. Help and hint keys
 
 For shop-based modules:
 

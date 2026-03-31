@@ -30,13 +30,16 @@ Notes:
 Files:
 
 - `SystemShop/settings.yml`
+- `SystemShop/goods/*.yml`
 - `SystemShop/shops/*.yml`
 - `SystemShop/ui/*.yml`
 
 Notes:
 
 - static goods configuration
-- goods are defined in the shop file itself
+- prefer storing products in `SystemShop/goods/*.yml`
+- `SystemShop/shops/*.yml` should usually reference products with `goods:`
+- inline goods in the shop file are legacy-compatible only
 - product-level currency is supported
 
 ## PlayerShop

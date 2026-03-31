@@ -56,17 +56,19 @@ Typical sources:
 ### UltimateShop -> SystemShop
 
 - source category -> `SystemShop/shops/<category>.yml`
-- source item price -> `goods.<id>.price`
-- source item limit -> `goods.<id>.buy-max`
+- source item definition -> `SystemShop/goods/<id>.yml`
+- source category listing -> `SystemShop/shops/<category>.yml` -> `goods:`
+- source item price -> `SystemShop/goods/<id>.yml` -> `price`
+- source item limit -> `SystemShop/goods/<id>.yml` -> `buy-max`
 - source item display -> `name`, `lore`, `material`, optional `item`
-- source currency -> product-level or shop-level `currency`
+- source currency -> product-level `currency` in the goods file, or shop-level `Currency.Key`
 
 ### EconomyShopGUI -> SystemShop
 
 - source section/shop page -> `SystemShop/shops/<page>.yml`
 - shop title -> `Title`
 - icon layout -> `layout` + `icons`
-- product entries -> `goods`
+- product entries -> `SystemShop/goods/*.yml` + `SystemShop/shops/<page>.yml` -> `goods:`
 - worth/price -> `price`
 
 ### QuickShop -> ChestShop

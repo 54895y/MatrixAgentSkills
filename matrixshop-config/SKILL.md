@@ -39,7 +39,10 @@ Use this skill for MatrixShop YAML configuration work. Do not use it for Kotlin 
   4. fallback `vault`
 - `ChestShop` uses module-level currency only.
 - `Cart` and `Record` do not define business currency.
-- `SystemShop` goods support product-level `currency`, and admin maintenance commands exist, but those commands are not config keys.
+- `SystemShop` goods support product-level `currency`.
+- Prefer `SystemShop/goods/*.yml` as reusable product files, then reference those ids from `SystemShop/shops/*.yml` under `goods:`.
+- Inline `goods.<id>` blocks inside `SystemShop/shops/*.yml` are legacy-compatible, but should not be the default output for new configs.
+- Admin maintenance commands exist (`goods ui`, `goods save`, `goods add`, `goods select`, `goods edit`), but those commands are not config keys.
 
 ## Output Rules
 

@@ -42,6 +42,8 @@ Generate valid MatrixShop YAML based on the current MatrixShop configuration mod
   - `name`
   - `lore`
   - `currency`
+- For new configs, prefer `SystemShop/goods/*.yml` as reusable product files and reference them from `SystemShop/shops/*.yml` via `goods:`.
+- Inline `goods.<id>` blocks inside shop files are legacy-compatible only.
 
 ## Output Rules
 
