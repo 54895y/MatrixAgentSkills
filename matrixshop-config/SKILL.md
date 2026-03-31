@@ -47,7 +47,7 @@ Use this skill for MatrixShop YAML configuration work. Do not use it for Kotlin 
 - Produce valid YAML, not pseudo-YAML.
 - Preserve the user's language.
 - Do not invent unsupported fields.
-- If converting old Malkuth-style samples, rewrite them to current MatrixShop conventions instead of preserving old naming.
+- If converting configs from other shop plugins, rewrite them to current MatrixShop conventions instead of preserving the source plugin structure.
 
 ## When To Read References
 

@@ -49,7 +49,7 @@ Generate valid MatrixShop YAML based on the current MatrixShop configuration mod
 - Output valid YAML only.
 - Do not invent unsupported keys.
 - Preserve the user's language.
-- If the user gives old Malkuth-style samples, convert them to current MatrixShop conventions.
+- If the user gives configs from other shop plugins, convert them to current MatrixShop conventions.
 
 ## Recommended Output Format
 

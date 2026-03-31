@@ -11,7 +11,8 @@
 - `根据我的生存服需求，生成 MatrixShop 的 module.yml、Economy/currency.yml 和一个 SystemShop 武器分类`
 - `帮我生成一个使用点券的 Auction 配置`
 - `我要一个不使用 shops 目录的 ChestShop、Cart、Record 配置`
-- `把下面这份旧 Malkuth 配置迁移成 MatrixShop 现行格式`
+- `把下面这份 UltimateShop 配置迁移成 MatrixShop 当前格式`
+- `把下面这份 EconomyShopGUI 配置迁移成 MatrixShop 当前格式`
 
 ## 当前 MatrixShop 结构
 
