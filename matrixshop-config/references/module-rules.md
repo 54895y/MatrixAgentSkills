@@ -1,0 +1,131 @@
+# MatrixShop Module Rules
+
+## Economy
+
+Files:
+
+- `Economy/currency.yml`
+
+Use it to define:
+
+- `vault`
+- `playerpoints`
+- placeholder-driven custom currencies
+
+## Menu
+
+Files:
+
+- `Menu/settings.yml`
+- `Menu/shops/*.yml`
+- `Menu/ui/*.yml`
+
+Notes:
+
+- shop-based module
+- usually acts as a hub to open other modules
+
+## SystemShop
+
+Files:
+
+- `SystemShop/settings.yml`
+- `SystemShop/shops/*.yml`
+- `SystemShop/ui/*.yml`
+
+Notes:
+
+- static goods configuration
+- goods are defined in the shop file itself
+- product-level currency is supported
+
+## PlayerShop
+
+Files:
+
+- `PlayerShop/settings.yml`
+- `PlayerShop/shops/*.yml`
+- `PlayerShop/ui/*.yml`
+
+Notes:
+
+- player-owned listings
+- shop file controls browse entry and shop-level settings
+
+## GlobalMarket
+
+Files:
+
+- `GlobalMarket/settings.yml`
+- `GlobalMarket/shops/*.yml`
+- `GlobalMarket/ui/*.yml`
+
+Notes:
+
+- shop file controls one market entry
+- shop-level currency is supported
+
+## Auction
+
+Files:
+
+- `Auction/settings.yml`
+- `Auction/shops/*.yml`
+- `Auction/ui/*.yml`
+
+Notes:
+
+- supports `ENGLISH` and `DUTCH`
+- shop-level currency is supported
+
+## Transaction
+
+Files:
+
+- `Transaction/settings.yml`
+- `Transaction/shops/*.yml`
+- `Transaction/ui/*.yml`
+
+Notes:
+
+- request / trade / confirm flow
+- shop-level currency is supported
+
+## ChestShop
+
+Files:
+
+- `ChestShop/settings.yml`
+- `ChestShop/signs.yml`
+- `ChestShop/ui/*.yml`
+
+Notes:
+
+- no `shops/*.yml`
+- bindings live in `settings.yml`
+- module-level currency only
+
+## Cart
+
+Files:
+
+- `Cart/settings.yml`
+- `Cart/ui/*.yml`
+
+Notes:
+
+- no `shops/*.yml`
+- no business currency definition
+
+## Record
+
+Files:
+
+- `Record/settings.yml`
+- `Record/retention.yml`
+- `Record/ui/*.yml`
+
+Notes:
+
+- no `shops/*.yml`
+- no business currency definition

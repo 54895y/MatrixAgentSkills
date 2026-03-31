@@ -1,0 +1,4 @@
+interface:
+  display_name: "MatrixShop Config"
+  short_description: "Generate and edit MatrixShop YAML configs from current module rules"
+  default_prompt: "Use $matrixshop-config to generate or modify MatrixShop YAML files based on the current MatrixShop config model, module structure, bindings rules, and economy priority."
