@@ -38,9 +38,13 @@ Notes:
 
 - static goods configuration
 - prefer storing products in `SystemShop/goods/*.yml`
+- `SystemShop/goods/*.yml` can also define `Kind: group` and `Kind: pool` resources
 - `SystemShop/shops/*.yml` should usually reference products with `goods:`
 - inline goods in the shop file are legacy-compatible only
 - product-level currency is supported
+- refresh rules belong in `SystemShop/shops/*.yml` under `icons.<char>.refresh`
+- default admin UI resources include `SystemShop/ui/goods-browser.yml`, `goods-editor.yml`, and `goods-shops.yml`
+- admin commands such as `goods save`, `goods add`, and `refresh run` are operational commands, not YAML keys
 
 ## PlayerShop
 

@@ -147,6 +147,48 @@ plugins/MatrixShop/
 - 分类文件 `SystemShop/shops/<shop-id>.yml` 里的 `goods:` 只写商品 id 列表
 - `shops/*.yml` 里直接内联 `goods.<id>` 仍兼容，但不应作为新配置默认写法
 
+`SystemShop/goods/*.yml` 还可以定义两类可复用资源：
+
+- `Kind: group`
+- `Kind: pool`
+
+其中：
+
+- `group` 用于复用一组商品 id
+- `pool` 用于刷新区域的加权随机候选
+
+## SystemShop 刷新规则
+
+刷新配置应写在：
+
+- `SystemShop/shops/<shop-id>.yml`
+- `icons.<char>.refresh`
+
+当前可用结构包括：
+
+- `Enabled`
+- `Cron`
+- `Timezone`
+- `Same-For-Players-In-Group`
+- `groups.<id>.Enabled`
+- `groups.<id>.Match-Script`
+- `groups.<id>.Random-Refresh`
+- `groups.<id>.Pick`
+- `groups.<id>.Pool-Ref`
+- `groups.<id>.goods`
+
+其中：
+
+- `Pool-Ref` 指向 `Kind: pool` 的 goods 资源
+- `goods` 可直接引用商品或 `Kind: group` 资源
+- `Match-Script` 用于按玩家条件分组
+
+默认资源中还存在这三份后台 UI 文件：
+
+- `SystemShop/ui/goods-browser.yml`
+- `SystemShop/ui/goods-editor.yml`
+- `SystemShop/ui/goods-shops.yml`
+
 ## 管理员商品维护
 
 SystemShop 当前支持管理员快速维护商品：
@@ -158,6 +200,33 @@ SystemShop 当前支持管理员快速维护商品：
 - `/matrixshopadmin goods edit <price|buy-max|currency|name|item|remove> ...`
 
 这属于后台命令，不应把它写成配置字段。
+
+SystemShop 当前也支持刷新后台命令：
+
+- `/matrixshopadmin refresh list [category]`
+- `/matrixshopadmin refresh run <category> [icon]`
+
+这同样属于后台命令，不应把它写成配置字段。
+
+## 当前兼容性事实
+
+当用户问“支持哪个版本”或“兼容哪个服务端”时，应区分：
+
+1. 已验证运行结果
+2. 源码层构建事实
+
+当前已验证结果：
+
+- `MatrixShop 1.3.0` 在 `Paper 1.21.8` 上 smoke boot 通过，验证日期 `2026-04-02`
+- `MatrixShop 1.3.0` 在 `Paper 1.21.11` 上 smoke boot 通过，验证日期 `2026-04-02`
+
+当前源码层事实：
+
+- 插件版本：`1.3.0`
+- 构建目标：`Bukkit API 1.12.2`
+- 必需依赖：`MatrixLib 1.0.1`
+
+不要把未验证的 `Folia`、`Spigot`、`Bukkit` 或其他 Paper 版本直接写成“已验证兼容”。
 
 ## 输出要求
 

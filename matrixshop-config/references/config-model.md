@@ -140,7 +140,15 @@ The current help and hint chain supports:
 
 ## SystemShop goods
 
-`SystemShop` goods currently support:
+`SystemShop/goods/*.yml` can currently be used in three ways:
+
+- product file
+- `Kind: group`
+- `Kind: pool`
+
+### Product fields
+
+`SystemShop` product files currently support:
 
 - `material`
 - `item`
@@ -172,3 +180,64 @@ Legacy-compatible model:
   - may still embed `goods.<id>` sections directly
 
 When generating fresh configs, prefer the separate `goods/` directory plus shop references.
+
+### Group resource
+
+Use `Kind: group` when multiple products should be reused together:
+
+```yaml
+id: starter_weapons
+Kind: group
+entries:
+  - wooden_sword
+  - iron_sword
+  - bow
+```
+
+### Pool resource
+
+Use `Kind: pool` for refreshable weighted candidates:
+
+```yaml
+id: weapon_refresh_pool_example
+Kind: pool
+entries:
+  iron_sword_offer:
+    goods: iron_sword
+    weight: 10
+    price: 99
+    buy-max: 3
+```
+
+## SystemShop refresh
+
+Refresh config belongs in the category shop file under `icons.<char>.refresh`.
+
+Supported structure:
+
+- `Enabled`
+- `Cron`
+- `Timezone`
+- `Same-For-Players-In-Group`
+- `groups.<id>.Enabled`
+- `groups.<id>.Match-Script`
+- `groups.<id>.Random-Refresh`
+- `groups.<id>.Pick`
+- `groups.<id>.Pool-Ref`
+- `groups.<id>.goods`
+
+Meaning:
+
+- `Pool-Ref` points to a `Kind: pool` goods resource
+- `goods` can directly reference products or `Kind: group` resources
+- `Match-Script` is used to route players into different refresh groups
+
+## SystemShop admin UI files
+
+Current default resources include:
+
+- `SystemShop/ui/goods-browser.yml`
+- `SystemShop/ui/goods-editor.yml`
+- `SystemShop/ui/goods-shops.yml`
+
+These are real UI resources, but the related admin commands are not configuration keys and should not be emitted as YAML fields.

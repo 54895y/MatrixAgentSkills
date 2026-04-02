@@ -78,7 +78,85 @@ lore:
   - '&7高品质近战武器'
 ```
 
-## 5. PlayerShop settings
+## 5. SystemShop goods group
+
+```yaml
+id: starter_weapons
+Kind: group
+entries:
+  - wooden_sword
+  - iron_sword
+  - bow
+```
+
+## 6. SystemShop refresh pool
+
+```yaml
+id: weapon_refresh_pool_example
+Kind: pool
+entries:
+  iron_sword_offer:
+    goods: iron_sword
+    weight: 10
+    price: 99
+    buy-max: 3
+```
+
+## 7. SystemShop category with refresh area
+
+```yaml
+Title:
+  - '&8武器商店'
+
+layout:
+  - '#########'
+  - '#ggggggg#'
+  - '#ggggggg#'
+  - '####I####'
+  - '####R####'
+
+icons:
+  '#':
+    material: 'STAINED_GLASS_PANE'
+    name: ' '
+  'g':
+    material: 'AIR'
+    mode: 'goods'
+    refresh:
+      Enabled: true
+      Cron: '0 0 6 * * ?'
+      Timezone: 'Asia/Shanghai'
+      Same-For-Players-In-Group: true
+      groups:
+        default:
+          Enabled: true
+          Random-Refresh: true
+          Pick: 2
+          Pool-Ref: 'weapon_refresh_pool_example'
+  'I':
+    material: 'BOOK'
+    name: '&f商店说明'
+  'R':
+    material: 'BARRIER'
+    name: '&c返回'
+    actions:
+      left:
+        - 'back'
+
+template:
+  name: '&f{name}'
+  lore:
+    - '&7价格: &e{price} {currency}'
+    - '&7单次上限: &f{limit}'
+
+Currency:
+  Key: vault
+
+goods:
+  - starter_weapons
+```
+
+## 8. PlayerShop settings
 
 ```yaml
 Enabled: true
@@ -106,7 +184,7 @@ Currency:
   Key: vault
 ```
 
-## 6. Non-shop module bindings
+## 9. Non-shop module bindings
 
 For modules such as `ChestShop`, `Cart`, and `Record`, put bindings in `settings.yml`:
 
@@ -122,7 +200,7 @@ Bindings:
       - '&7常用入口: &f{command} open'
 ```
 
-## 7. Help and hint keys
+## 10. Help and hint keys
 
 For shop-based modules:
 

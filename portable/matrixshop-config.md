@@ -42,8 +42,22 @@ Generate valid MatrixShop YAML based on the current MatrixShop configuration mod
   - `name`
   - `lore`
   - `currency`
+- `SystemShop/goods/*.yml` can also define:
+  - `Kind: group`
+  - `Kind: pool`
 - For new configs, prefer `SystemShop/goods/*.yml` as reusable product files and reference them from `SystemShop/shops/*.yml` via `goods:`.
 - Inline `goods.<id>` blocks inside shop files are legacy-compatible only.
+- `SystemShop` refresh config belongs in `SystemShop/shops/*.yml` under `icons.<char>.refresh`.
+- Current admin UI resources include `SystemShop/ui/goods-browser.yml`, `goods-editor.yml`, and `goods-shops.yml`.
+- Admin commands such as `goods ui`, `goods save`, `goods add`, `goods select`, `goods edit`, `refresh list`, and `refresh run` are operational commands, not config keys.
+- If the user asks about compatibility, distinguish verified runtime tests from build-target facts.
+- Current verified runtime tests:
+  - `MatrixShop 1.3.0` on `Paper 1.21.8` smoke boot: pass (`2026-04-02`)
+  - `MatrixShop 1.3.0` on `Paper 1.21.11` smoke boot: pass (`2026-04-02`)
+- Current build facts:
+  - plugin version `1.3.0`
+  - build target `Bukkit API 1.12.2`
+  - required dependency `MatrixLib 1.0.1`
 
 ## Output Rules
 

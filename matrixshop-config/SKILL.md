@@ -1,6 +1,6 @@
 ---
 name: matrixshop-config
-description: Use when users want to generate, modify, migrate, or explain MatrixShop configuration files, including module switches, bindings, help text, economy definitions, SystemShop goods, and module or shop YAML files, based on the current MatrixShop configuration model.
+description: Use when users want to generate, modify, migrate, or explain MatrixShop configuration files, including module switches, bindings, help text, economy definitions, SystemShop goods repositories, refresh areas, compatibility facts, and module or shop YAML files, based on the current MatrixShop configuration model.
 ---
 
 # MatrixShop Config
@@ -12,8 +12,9 @@ Use this skill for MatrixShop YAML configuration work. Do not use it for Kotlin 
 1. Read `references/config-model.md`.
 2. If the task targets specific modules, read `references/module-rules.md`.
 3. If the user needs concrete YAML, read `references/examples.md`.
-4. Decide the exact target file path before generating content.
-5. Generate only supported keys and current MatrixShop structures.
+4. If the user asks what versions are supported or tested, read `references/runtime-compatibility.md`.
+5. Decide the exact target file path before generating content.
+6. Generate only supported keys and current MatrixShop structures.
 
 ## Current Rules
 
@@ -40,9 +41,16 @@ Use this skill for MatrixShop YAML configuration work. Do not use it for Kotlin 
 - `ChestShop` uses module-level currency only.
 - `Cart` and `Record` do not define business currency.
 - `SystemShop` goods support product-level `currency`.
+- `SystemShop/goods/*.yml` can represent:
+  - reusable product files
+  - `Kind: group` entry groups
+  - `Kind: pool` weighted refresh pools
 - Prefer `SystemShop/goods/*.yml` as reusable product files, then reference those ids from `SystemShop/shops/*.yml` under `goods:`.
 - Inline `goods.<id>` blocks inside `SystemShop/shops/*.yml` are legacy-compatible, but should not be the default output for new configs.
+- `SystemShop` refresh config belongs in `SystemShop/shops/*.yml` under `icons.<char>.refresh`.
+- `SystemShop/ui/goods-browser.yml`, `goods-editor.yml`, and `goods-shops.yml` are real UI files, but the admin commands that open them are not config keys.
 - Admin maintenance commands exist (`goods ui`, `goods save`, `goods add`, `goods select`, `goods edit`), but those commands are not config keys.
+- When the user asks about compatibility, separate verified runtime tests from source-level build facts and do not overclaim untested platforms.
 
 ## Output Rules
 
@@ -60,3 +68,5 @@ Use this skill for MatrixShop YAML configuration work. Do not use it for Kotlin 
   - Read when the task targets one or more modules.
 - `references/examples.md`
   - Read when the user wants generated config examples, starter files, or merged config packs.
+- `references/runtime-compatibility.md`
+  - Read when the user asks what MatrixShop versions, server versions, or compatibility claims are currently verified.
