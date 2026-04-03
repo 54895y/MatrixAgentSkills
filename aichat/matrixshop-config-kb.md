@@ -107,6 +107,33 @@ plugins/MatrixShop/
 - `Record`
   - 不配置业务货币
 
+## 条件税规则
+
+当前税系统支持：
+
+- `Enabled`
+- `Mode`
+- `Value`
+- `Rules.<id>.Enabled`
+- `Rules.<id>.Priority`
+- `Rules.<id>.Mode`
+- `Rules.<id>.Value`
+- `Rules.<id>.Condition`
+
+当前行为：
+
+- 多条税规则按 `Priority` 选择一条命中的规则
+- `Condition` 使用 Kether
+- 命中的规则会覆盖默认税配置
+
+模块路径：
+
+- `PlayerShop/settings.yml -> Listing.Tax`
+- `GlobalMarket/settings.yml -> Listing.Tax`
+- `Auction/settings.yml -> Options.Listing.Tax`
+- `Transaction/settings.yml -> Options.Trade.Tax`
+- `ChestShop/settings.yml -> Trade.Tax`
+
 ## Bindings 规则
 
 `Bindings.Commands` 可包含：
@@ -217,12 +244,12 @@ SystemShop 当前也支持刷新后台命令：
 
 当前已验证结果：
 
-- `MatrixShop 1.3.0` 在 `Paper 1.21.8` 上 smoke boot 通过，验证日期 `2026-04-02`
-- `MatrixShop 1.3.0` 在 `Paper 1.21.11` 上 smoke boot 通过，验证日期 `2026-04-02`
+- `MatrixShop 1.5.0` 在 `Paper 1.21.8` 上 smoke boot 通过，验证日期 `2026-04-03`
+- `MatrixShop 1.5.0` 在 `Paper 1.21.11` 上 smoke boot 通过，验证日期 `2026-04-03`
 
 当前源码层事实：
 
-- 插件版本：`1.3.0`
+- 插件版本：`1.5.0`
 - 构建目标：`Bukkit API 1.12.2`
 - 必需依赖：`MatrixLib 1.0.1`
 

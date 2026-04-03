@@ -58,6 +58,7 @@ Notes:
 
 - player-owned listings
 - shop file controls browse entry and shop-level settings
+- conditional tax config belongs in `PlayerShop/settings.yml -> Listing.Tax`
 
 ## GlobalMarket
 
@@ -71,6 +72,8 @@ Notes:
 
 - shop file controls one market entry
 - shop-level currency is supported
+- conditional tax config belongs in `GlobalMarket/settings.yml -> Listing.Tax`
+- legacy `Listing.Tax-Percent` may still appear in old configs
 
 ## Auction
 
@@ -84,6 +87,7 @@ Notes:
 
 - supports `ENGLISH` and `DUTCH`
 - shop-level currency is supported
+- conditional tax config belongs in `Auction/settings.yml -> Options.Listing.Tax`
 
 ## Transaction
 
@@ -97,6 +101,7 @@ Notes:
 
 - request / trade / confirm flow
 - shop-level currency is supported
+- money tax config belongs in `Transaction/settings.yml -> Options.Trade.Tax`
 
 ## ChestShop
 
@@ -111,6 +116,7 @@ Notes:
 - no `shops/*.yml`
 - bindings live in `settings.yml`
 - module-level currency only
+- conditional tax config belongs in `ChestShop/settings.yml -> Trade.Tax`
 
 ## Cart
 

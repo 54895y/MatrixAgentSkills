@@ -104,6 +104,34 @@ Rules:
 - `Record`
   - no business currency config
 
+## Tax rules
+
+Current tax config supports:
+
+- `Enabled`
+- `Mode`
+- `Value`
+- `Rules.<id>.Enabled`
+- `Rules.<id>.Priority`
+- `Rules.<id>.Mode`
+- `Rules.<id>.Value`
+- `Rules.<id>.Condition`
+
+Behavior:
+
+- tax rules are evaluated by highest `Priority`
+- the first matching rule overrides the default tax config
+- `Condition` uses Kether
+
+Module paths:
+
+- `PlayerShop/settings.yml -> Listing.Tax`
+- `GlobalMarket/settings.yml -> Listing.Tax`
+- `GlobalMarket/settings.yml -> Listing.Tax-Percent` is legacy-compatible only
+- `Auction/settings.yml -> Options.Listing.Tax`
+- `Transaction/settings.yml -> Options.Trade.Tax`
+- `ChestShop/settings.yml -> Trade.Tax`
+
 ## Bindings rules
 
 ### Commands

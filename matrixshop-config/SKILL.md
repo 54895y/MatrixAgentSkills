@@ -1,6 +1,6 @@
 ---
 name: matrixshop-config
-description: Use when users want to generate, modify, migrate, or explain MatrixShop configuration files, including module switches, bindings, help text, economy definitions, SystemShop goods repositories, refresh areas, compatibility facts, and module or shop YAML files, based on the current MatrixShop configuration model.
+description: Use when users want to generate, modify, migrate, or explain MatrixShop configuration files, including module switches, bindings, help text, economy definitions, SystemShop goods repositories, refresh areas, tax rules, compatibility facts, and module or shop YAML files, based on the current MatrixShop configuration model.
 ---
 
 # MatrixShop Config
@@ -40,6 +40,13 @@ Use this skill for MatrixShop YAML configuration work. Do not use it for Kotlin 
   4. fallback `vault`
 - `ChestShop` uses module-level currency only.
 - `Cart` and `Record` do not define business currency.
+- Conditional tax config is supported for `PlayerShop`, `GlobalMarket`, `Auction`, `Transaction`, and `ChestShop`.
+- Tax rules are selected by `Priority`, support Kether `Condition`, and override the default tax config when matched.
+- `PlayerShop` tax path: `Listing.Tax`.
+- `GlobalMarket` tax path: `Listing.Tax` with legacy-compatible `Listing.Tax-Percent`.
+- `Auction` tax path: `Options.Listing.Tax`.
+- `Transaction` tax path: `Options.Trade.Tax`.
+- `ChestShop` tax path: `Trade.Tax`.
 - `SystemShop` goods support product-level `currency`.
 - `SystemShop/goods/*.yml` can represent:
   - reusable product files

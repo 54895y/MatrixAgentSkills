@@ -180,11 +180,84 @@ Search:
   enable: true
   condition: "perm shop.vip"
 
+Listing:
+  Tax:
+    Enabled: true
+    Mode: percent
+    Value: 3.0
+    Rules:
+      vip:
+        Enabled: true
+        Priority: 100
+        Mode: percent
+        Value: 1.0
+        Condition:
+          - "perm 'group.vip'"
+
 Currency:
   Key: vault
 ```
 
-## 9. Non-shop module bindings
+## 9. GlobalMarket tax config
+
+```yaml
+Listing:
+  Expire-Hours: 72
+  Tax:
+    Enabled: true
+    Mode: percent
+    Value: 3.0
+    Rules:
+      vip:
+        Enabled: true
+        Priority: 100
+        Mode: percent
+        Value: 1.0
+        Condition:
+          - "perm 'group.vip'"
+```
+
+## 10. Transaction tax config
+
+```yaml
+Options:
+  Trade:
+    Allow-Items: true
+    Allow-Money: true
+    Allow-Exp: true
+    Tax:
+      Enabled: true
+      Mode: percent
+      Value: 3.0
+      Rules:
+        vip:
+          Enabled: true
+          Priority: 100
+          Mode: percent
+          Value: 1.0
+          Condition:
+            - "perm 'group.vip'"
+```
+
+## 11. ChestShop tax config
+
+```yaml
+Trade:
+  Tax:
+    Enabled: true
+    Mode: percent
+    Value: 3.0
+    Rules:
+      vip:
+        Enabled: true
+        Priority: 100
+        Mode: percent
+        Value: 1.0
+        Condition:
+          - "perm 'group.vip'"
+```
+
+## 12. Non-shop module bindings
 
 For modules such as `ChestShop`, `Cart`, and `Record`, put bindings in `settings.yml`:
 
@@ -200,7 +273,7 @@ Bindings:
       - '&7常用入口: &f{command} open'
 ```
 
-## 10. Help and hint keys
+## 13. Help and hint keys
 
 For shop-based modules:
 
