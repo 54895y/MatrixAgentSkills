@@ -1,0 +1,5 @@
+interface:
+  display_name: "Matrix Series Config"
+  short_description: "Generate MatrixLib, MatrixShop, MatrixStorage, MatrixAuth, MatrixCook config files and Kether scripts"
+  default_prompt: "Use $matrix-series-config to generate or modify MatrixLib, MatrixShop, MatrixStorage, MatrixAuth, or MatrixCook YAML files and Kether scripts using the current Matrix series configuration model."
+
